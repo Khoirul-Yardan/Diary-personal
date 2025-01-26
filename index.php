@@ -239,18 +239,18 @@ textarea {
 </head>
 <body>
     <header>
-        <h1>Diary Interaktif</h1>
+        <h1>Diary Personal</h1>
         <p>Tulis pikiranmu dan terima umpan balik yang dipersonalisasi.</p>
     </header>
     <div class="container">
         <!-- Sejarah -->
         <div class="history-section">
-            <h3>Sejarah Entri</h3>
+            <h3>History</h3>
             <?php if ($result->num_rows > 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
                     <div class="history-item">
                         <strong>Tanggal: <?= date("d F Y", strtotime($row['created_at'])); ?></strong>
-                        <p><strong>Entri:</strong> <?= nl2br(htmlspecialchars($row['entry'])); ?></p>
+                        <p><strong>Diary:</strong> <?= nl2br(htmlspecialchars($row['entry'])); ?></p>
                         <p><strong>Umpan Balik:</strong> <?= nl2br(htmlspecialchars($row['feedback'])); ?></p>
                         <div class="action-buttons">
                             <a href="index.php?delete=<?= $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus entri ini?');">Hapus</a>
@@ -265,7 +265,7 @@ textarea {
 
         <!-- Entri Form -->
         <div class="entry-section">
-            <h2>Entri Hari Ini</h2>
+            <h2>Diary hari ini</h2>
             <form action="index.php" method="POST">
                 <textarea name="diaryEntry" id="diaryEntry" placeholder="Tulis tentang hari Anda..." required></textarea>
                 <button type="submit">Kirim</button>
